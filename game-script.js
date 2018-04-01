@@ -6,6 +6,8 @@
 
 var intervalID;
 
+var textArray = [];
+
 var switchSlides = true;
 
 var slideIndex = 0;
@@ -17,6 +19,10 @@ let textBox = document.getElementById('dialog');
 let currIndex = 0;
 
 var gameObj = new gameScript();
+
+// INITIAL BACKGROUND
+
+setBackground("outside.jpg");
 
 button.addEventListener('click', function () {
     gameObj.run();
@@ -41,15 +47,36 @@ function gameScript() {
 
             "Inspired by Renpy",
 
-            "Easier to add dialogs unlike before"
+            "Easier to add dialogs unlike before",
+
+            "I can't add images!",
+
+            "Helbes Me",
+
+            "This is skipped",
+
+            "An Error?",
+
+            "No Errors",
+
+            "skipped an error again! LOL IM GOD"
 
         ],
 
-        pictureSequence:[
-            "test.bg"
-        ]
+        images:[
+            
+            "outside.jpg",
 
+            "classroom.png",
+
+            "classroom.png",
+
+        ]
     };
+
+    for(var i = 0; i < dialog.text.length; i++){
+        textArray.push(dialog.text[i])
+    }
 
     // DONT TOUCH THE CODE BELOW
 
@@ -67,6 +94,7 @@ function gameScript() {
             switchSlides = true;
             slideIndex++;
         }
+        ((dialog.images[slideIndex] == undefined) ? "" : setBackground(dialog.images[slideIndex]));
 
     }
 
@@ -76,8 +104,10 @@ function typed(text, bool, typingSpeed) {
     textBox.innerHTML = "";
 
     if (text == undefined) {
-        console.log('err');
+        console.log('Function Used');
         clearInterval(intervalID);
+        slideIndex++;
+        gameObj.run();
     }
     else {
         try {
@@ -113,4 +143,12 @@ function typed(text, bool, typingSpeed) {
 
 
 
+}
+
+
+// setBacground
+
+function setBackground(fileName){
+    var backgroundHolder = document.getElementById('main-game-box');
+    backgroundHolder.style.backgroundImage = "url(assets/images/" + fileName + ")";
 }
