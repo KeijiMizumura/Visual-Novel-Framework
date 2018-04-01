@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Visual Novel Framework</title>
+    <link rel="stylesheet" href="main-style.css">
+</head>
+<body>
+    <!-- Game Container -->
+    <div class="main-game-container">
+        <div class="outer-game-container">
+            <div class="inner-game-container">
+
+                <!-- Main Menu -->
+                <div class="main-menu" id="main-menu">
+                    <div class="side-menu">
+                        <ul>
+                            <li class="menu-items" id="startBtn">Start Game</li>
+                            <li class="menu-items" id="continueBtn">Continue</li>
+                            <li class="menu-items" id="optionsBtn">Options</li>
+                            <li class="menu-items" id="creditsBtn">Credits</li>
+                            <li class="menu-items" id="quitBtn">Quit</li>
+                        </ul>
+                    </div>
+                    <div class="title-screen">
+                        <!--Either Image Or Title-->
+                        <h1 id="game-title">Your Title</h1>
+                    </div>
+                </div>
+
+                <!-- Visual Novel Template -->
+                <div class="main-game-box" id="main-game-box">
+                    <div class="dialog-box" id="dialog-box">
+                        <div class="name-box" id="name-box">
+
+                        </div>
+                        <div class="word-box" id="word-box">
+                            <p class="dialog" id="dialog">
+                                Kamusta Jared
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="game-script.js"></script>
+    <script type="text/javascript" src="game.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    
+</body>
+</html>

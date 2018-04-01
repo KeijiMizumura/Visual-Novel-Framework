@@ -1,0 +1,184 @@
+:root{
+    /* Colors */
+    --dark: #000;
+    --light: #fff;
+    --menu-color: #333;
+    --hover-color: #111;
+    --dialog-color: #555;
+    --dialog-text: #fff;
+
+    /* Font  */
+    --main-shadow:
+    #000 0px 0px 0.5vw,
+    #000 0px 0px 0.5vw,
+    #000 0px 0px 0.5vw,
+    #000 0px 0px 0.5vw, 
+    #000 0px 0px 0.5vw, 
+    #000 0px 0px 0.5vw;
+    ;
+    
+    /* Font */
+    --main-font: Arial;
+    --main-font-size: 2vw;
+    --title-font-size: 4vw;
+
+    /* Main Menu */
+    --title-background: url('https://i.pinimg.com/originals/90/c7/42/90c742a3d6d089e714078cffff9609ea.jpg');
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+    supported by Chrome and Opera */
+
+}
+
+body{
+    overflow: hidden;
+    background-color: var(--dark);
+    width: 100%;
+    font-family: var(--main-font); 
+}
+
+.main-game-container{
+    display: table;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.outer-game-container{
+    width: 100%;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.inner-game-container{
+    position: relative;
+    display: block;
+    margin: auto;
+    width: 97%;
+    overflow: hidden;
+    height: 0;
+    padding-top: 48%;
+    background-color: var(--light);
+}
+
+/* Main Menu */
+
+.main-menu{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    opacity: 1;
+    transition: opacity 800ms;
+}
+
+.side-menu{
+    position: absolute;
+    display: table;
+    top: 0;
+    left: 0;
+    width: 20%;
+    height: 101%;
+    background-color: var(--menu-color);
+    color: var(--light);
+    border-right: 1vh solid var(--dark);
+}
+
+.side-menu ul{
+    display: table-cell;
+    vertical-align: middle;
+    list-style: none;
+    padding-left: 1.5vw;
+}
+
+.side-menu ul li{
+    padding: 2.7vw 0;
+    font-size: var(--main-font-size);
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.side-menu ul li:hover{
+    color: var(--hover-color);
+}
+
+/* Title Screen */
+
+.title-screen{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80%;
+    height: 101%;
+    background: var(--title-background);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: var(--dark);
+}
+
+#game-title{
+    text-align: center;
+    padding-top: 5vw;
+    font-size: var(--title-font-size);
+    color: var(--light);
+    text-transform: uppercase;
+    text-shadow: var(--main-shadow);
+}
+
+/* Main Game Box */
+
+.main-game-box{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.dialog-box{
+    width: 85%;
+    height: 30%;
+    position: absolute;
+    left: 7.5%;
+    bottom: 2%;
+    border-radius: 1vw;
+    cursor: pointer;
+    background: var(--dialog-color);
+}
+
+.word-box{
+    width: 90%;
+    height: 80%;
+    position: absolute;
+    left: 5%;
+    top: 10%;
+    padding: 2px;
+    word-wrap: break-word;
+}
+
+.word-box .dialog{
+    color: var(--dialog-text);
+    text-shadow: var(--main-shadow);
+    font-size: 1.5vw;
+}
+
+
+
+/* TYPED JS */
+
+.typed-cursor{
+    display: none;
+}
