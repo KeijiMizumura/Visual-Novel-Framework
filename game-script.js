@@ -34,42 +34,26 @@ function gameScript() {
         This is where you add your dialog!
     */
 
+    var names = [
+        "Mizuke",
+        "John",
+        "Dog"
+    ];
+
     var dialog = {
         text: [
 
-            "Testing this long text for education purposes Testing this long text for education purposes",
+            `~${names[0]}: Testing this long text for education purposes Testing this long text for education purposes`,
 
-            "Easy Boi! Calm Thy Arms",
+            `~${names[1]}: Hello`,
 
-            "Visual Novel Engine created by Keiji Mizumura",
+            `~: This is an empty character name`,
 
-            "Pure JavaScript! No Libraries Imported Somewhere",
+            `#classroom.png`,
 
-            "Inspired by Renpy",
+            `~${names[0]}: Whoa! The background changed!`,
 
-            "Easier to add dialogs unlike before",
-
-            "I can't add images!",
-
-            "Helbes Me",
-
-            "This is skipped",
-
-            "An Error?",
-
-            "No Errors",
-
-            "skipped an error again! LOL IM GOD"
-
-        ],
-
-        images:[
-            
-            "outside.jpg",
-
-            "classroom.png",
-
-            "classroom.png",
+            `This is just a normal string of text, try to learn more about this visual novel engine`
 
         ]
     };
@@ -85,17 +69,38 @@ function gameScript() {
     // TECHNICALLY IT IS BUT IT YOU ARE THE USER :D
 
     this.run = function () {
-        if (switchSlides === true) {
-            typed(dialog.text[slideIndex], true, typingSpeedOfText);
-            switchSlides = false;
-        }
-        else if (switchSlides === false) {
-            typed(dialog.text[slideIndex], false, typingSpeedOfText);
+        if(dialog.text[slideIndex].includes("#")){
+            var img = dialog.text[slideIndex].slice(1,dialog.text[slideIndex].length);
+            setBackground(img);
+            slideIndex+=1;
             switchSlides = true;
-            slideIndex++;
         }
-        ((dialog.images[slideIndex] == undefined) ? "" : setBackground(dialog.images[slideIndex]));
-
+        
+        if (dialog.text[slideIndex].includes("~") && dialog.text[slideIndex].includes(":")){
+            var lastVal = dialog.text[slideIndex].search(":");
+            var character = dialog.text[slideIndex].slice(1,lastVal);
+            var actualText = dialog.text[slideIndex].substr(lastVal + 2);
+            dialog.text[slideIndex] = actualText;
+            if(character.length > 0){
+                setName(character);
+            }
+            else{
+                setName("");
+            }
+            //console.log(actualText);
+        }
+        
+        // INDENTED JUST TO SHOW THE CHANGING FUNCTION
+            if (switchSlides === true) {
+                typed(dialog.text[slideIndex], true, typingSpeedOfText);
+                switchSlides = false;
+            }
+            else if (switchSlides === false) {
+                typed(dialog.text[slideIndex], false, typingSpeedOfText);
+                switchSlides = true;
+                slideIndex++;
+            }
+        
     }
 
 }
@@ -104,7 +109,7 @@ function typed(text, bool, typingSpeed) {
     textBox.innerHTML = "";
 
     if (text == undefined) {
-        console.log('Function Used');
+        //console.log('Function Used');
         clearInterval(intervalID);
         slideIndex++;
         gameObj.run();
@@ -116,7 +121,7 @@ function typed(text, bool, typingSpeed) {
                 function typing() {
 
                     if (index > text.length) {
-                        console.log(text.length);
+                        //console.log(text.length);
                         clearInterval(intervalID);
                         switchSlides = true;
                         slideIndex++;
@@ -130,7 +135,7 @@ function typed(text, bool, typingSpeed) {
             }
             else if (bool === false) {
                 clearInterval(intervalID);
-                console.log('cleared');
+                //console.log('cleared');
                 textBox.innerHTML = "";
                 textBox.innerHTML = text;
             }
@@ -151,4 +156,17 @@ function typed(text, bool, typingSpeed) {
 function setBackground(fileName){
     var backgroundHolder = document.getElementById('main-game-box');
     backgroundHolder.style.backgroundImage = "url(assets/images/" + fileName + ")";
+}
+
+function setName(charName){
+    var nameHolder = document.getElementById('character-name');
+    var nameBox = document.getElementById('name-box');
+    if(charName.length > 0){
+        nameBox.style.display = "table";
+        nameHolder.innerText = charName;
+    }
+    else{
+        nameBox.style.display = "none";
+    }
+    
 }

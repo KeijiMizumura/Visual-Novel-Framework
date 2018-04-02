@@ -191,8 +191,24 @@ body{
     background: #888;
     transition: left 1000ms;
 }
-/* TYPED JS */
 
-.typed-cursor{
+/* Name Box */
+
+.name-box{
+    position: absolute;
+    height: 4.5vw;
+    width: 15vw;
+    top: -4.5vw;
+    left: 2vw;
+    background-color: #fff;
+    font-size: 1vw;
+    text-align: center;
+    border-radius: 1vw 1vw 0 0;
     display: none;
+    overflow: hidden;
+
+}
+.name-box #character-name{
+   display: table-cell !important;
+   vertical-align: middle !important;
 }
