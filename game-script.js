@@ -35,29 +35,16 @@ function gameScript() {
     */
 
     var names = [
-        "Jesus",
-        "Joseph",
-        "Mary"
+        "John"
     ];
+    
+    // use ~${names[0]}:
 
     var dialog = {
         text: [
             
-            `Jesus died.`,
-
-            `~${names[0]}: Not this shit again`,
-
-            `~${names[1]}: Now I can get a real child`,
-
-            `*Joseph and Mary fcked`,
-
-            `#classroom.png`,
-
-            `~${names[0]}: Whaaat!? You're not a virgin anymore Mary haha-ue`,
-
-            `~${names[2]}: My pussy has never been this wet. God never satisfied me`,
-            
-            `~${names[1]}: You know jesus-kun, I have bigger cock than god`,
+            `~${names[0]}: I'm going to eat some pizza today`,
+            `John ate some pizza`
 
         ]
     };
@@ -149,9 +136,6 @@ function typed(text, bool, typingSpeed) {
             clearInterval(intervalID);
         }
     }
-
-
-
 }
 
 
